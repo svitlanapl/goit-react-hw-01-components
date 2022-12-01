@@ -1,31 +1,31 @@
 import PropTypes from 'prop-types';
+import { Avatar, Name, Social, Location, Label, Quantity } from './Profile.styled';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
     return (
-        <div class="profile">
-            <div class="description">
-                <img
+        <div>
+            <div>
+                <Avatar
                 src={avatar}
                 alt="User avatar"
-                class="avatar"
                 />
-                <p class={username}></p>
-                <p class={tag}></p>
-                <p class={location}></p>
+                <Name>{username}</Name>
+                <Social>{tag}</Social>
+                <Location>{location}</Location>
             </div>
-            <ul class="stats">
+            <ul>
                 <li>
-                    <span class="label">Followers</span>
-                    <span class="quantity">1000</span>
+                    <Label>Followers</Label>
+                    <Quantity>{stats.followers}</Quantity>
                 </li>
                 <li>
-                    <span class="label">Views</span>
-                    <span class="quantity">2000</span>
+                    <Label>Views</Label>
+                    <Quantity>{stats.views}</Quantity>
                 </li>
                 <li>
-                    <span class="label">Likes</span>
-                    <span class="quantity">3000</span>
-                    </li>
+                    <Label>Likes</Label>
+                    <Quantity>{stats.likes}</Quantity>
+                </li>
             </ul>
         </div>
     )
@@ -38,7 +38,7 @@ Profile.propTypes = {
     avatar: PropTypes.string,
     stats: PropTypes.exact({
         followers: PropTypes.number,
-      views: PropTypes.number,
-      likes: PropTypes.number,
+        views: PropTypes.number,
+        likes: PropTypes.number,
     })
 };
